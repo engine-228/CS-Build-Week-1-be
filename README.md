@@ -85,9 +85,9 @@ TBD
 
 - [@melissa-murphy](https://github.com/melissa-murphy) 
 - [@chrisgins](https://github.com/chrisgins) 
-- [@ austin](https://github.com/) 
-- [@ david](https://github.com/) 
-- [@ lorenzo](https://github.com/) 
+- [@A-Powell](https://github.com/A-Powell) 
+- [@daveskull81](https://github.com/daveskull81) 
+- [@lorenzosimpson](https://github.com/lorenzosimpson) 
 
 
 
