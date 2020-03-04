@@ -15,10 +15,13 @@ class Player(models.Model):
     items = models.CharField(max_length=500, default=" ")
 
 
+
     # create fn to initialize
     def init(self):
         if self.rm_current == 0:
             self.rm_current == Room.objects.first().id
+            self.x = Room.objects.first().x
+            self.y = Room.objects.first().y
             self.save()
 
     def room(self):
