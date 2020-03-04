@@ -1,11 +1,15 @@
 {
     "_meta": {
         "hash": {
+<<<<<<< HEAD
             "sha256": "ea5d601206297688754b37cf3e7aba7d9724e149b94a4221574d79bae6816ce1"
+=======
+            "sha256": "9b1a17d2e8ef37843412a6dc27f138bd12f8b834f2403a2fe9c074856c34eb16"
+>>>>>>> 3f150e3583af2ba2a0af7a418de097be18eb1a44
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.8"
+            "python_version": "3.8.1"
         },
         "sources": [
             {
@@ -87,6 +91,7 @@
                 "sha256:ef6df7e14698e79c59c7ee7cf94cd62e5b869db369ed4b1b8f7b729ea825712a",
                 "sha256:f898e5cc0a662a9e12bde6f931263a1bbd350cfb18e1d5336a12927851825bb6"
             ],
+            "index": "pypi",
             "version": "==2.8.4"
         },
         "psycopg2-binary": {
