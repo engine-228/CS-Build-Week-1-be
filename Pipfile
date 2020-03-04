@@ -12,11 +12,11 @@ django = "*"
 djangorestframework = "*"
 gunicorn = "*"
 dj-database-url = "*"
-psycopg2-binary = "*"
 whitenoise = "*"
 django-heroku = "*"
 django-cors-headers = "*"
 python-decouple = "*"
+psycopg2 = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.8.1"
