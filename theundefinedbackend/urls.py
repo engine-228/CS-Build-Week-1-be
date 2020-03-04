@@ -1,4 +1,4 @@
-"""theundefined URL Configuration
+"""theundefinedbackend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -14,16 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include, re_path
+from django.urls import path, include
 from rest_framework import routers
-from undefinedapi.api import PlayerViewSet
-from rest_framework.authtoken import views
+from api import views
 
 router = routers.DefaultRouter()
-router.register(r'players', PlayerViewSet)
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-    re_path(r'^api-token-auth/', views.obtain_auth_token),
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
