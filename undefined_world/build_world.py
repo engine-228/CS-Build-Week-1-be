@@ -1,5 +1,6 @@
-from undefined_world.models import Player, Room
-from undefined_world.models import room_title, room_descriptions
+from undefined_world.player_models import Player
+from undefined_world.room_models import Room
+from undefined_world.room_setups import room_title, room_descriptions
 
 class World:
     def __init__(self):
