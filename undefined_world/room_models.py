@@ -13,27 +13,18 @@ class Room(models.Model):
     s_to = models.IntegerField(default=0)
     e_to = models.IntegerField(default=0)
     w_to = models.IntegerField(default=0)
+    # add x,y to locate rooms in the grid
+    x = models.IntegerField(default=0)
+    y = models.IntegerField(default=0)
 
     # create function to connect rooms
     def rm_connects(self, destination, heading):
         destinationID = destination.id 
-        try:
-            destination = Room.objects.get(id=destinationID)
-        except Room.DoesNotExist:
-            print("Room doesn't exist") 
-        else:
-            if heading == 'n':
-                self.n_to = destinationID
-            elif heading =='s':
-                self.s_to = destinationID
-            elif heading == 'e':
-                self.e_to = destinationID
-            elif heading =='w':
-                self.w_to = destinationID
-            else:
-                print("You can't go that way.")
-                return
-            self.save()
+        reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
+        reverse_dir = reverse_dirs[heading]
+        setattr(self, f"{heading}_to", destination.id)
+        setattr(destination, f"{reverse_dir}_to", self.id)
+        self.save()
 
     # fn to create player naming/id
     def player_handle(self, active_playerID):
