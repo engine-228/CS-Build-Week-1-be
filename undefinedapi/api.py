@@ -5,7 +5,7 @@ from .models import Player
 class PlayerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Player
-        fields = ("bio")
+        fields = ("__all__")
 
 
 class PlayerViewSet(viewsets.ModelViewSet):
