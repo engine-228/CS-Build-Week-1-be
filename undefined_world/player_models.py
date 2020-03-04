@@ -1,12 +1,15 @@
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.db import models  
+from rest_framework.authtoken.models import Token
 from .room_models import Room 
-from django.dispatch import receiver 
 import uuid
-import sys
+
 
 # create player model class
 class Player(models.Model):
-    user = models.models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     rm_current = models.IntegerField(default=0)
     uuid = models.UUIDField(default=uuid.uuid4, unique=True)
     items = models.CharField(max_length=500, default=" ")
