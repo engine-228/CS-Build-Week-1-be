@@ -43,9 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework'
-    'undefined_world',
-    'undefined_adventure',
-    
+    # 'undefined_world',
 ]
 
 MIDDLEWARE = [
