@@ -1,7 +1,10 @@
-from django.db import models 
+from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 import uuid
-from undefined_world.player_models import Player
-
+ 
 
 # create room class of models
 
@@ -22,7 +25,7 @@ class Room(models.Model):
         destinationID = destination.id 
         reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
         reverse_dir = reverse_dirs[heading]
-        setattr(self, f"{heading}_to", destination.id)
+        setattr(self, f"{heading}_to", destinationID)
         setattr(destination, f"{reverse_dir}_to", self.id)
         self.save()
 
