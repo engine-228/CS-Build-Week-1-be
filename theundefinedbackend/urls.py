@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from api import views
+from api.views import login
 from undefined_world.views import RoomViewSet
 
 router = routers.DefaultRouter()
@@ -26,7 +27,7 @@ router.register(r'rooms', RoomViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/login', login),
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
     # path('rooms/', include(undefined_world.urls))
 ]
