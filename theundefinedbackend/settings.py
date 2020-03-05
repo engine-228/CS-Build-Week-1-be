@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
+    'rest_framework.authtoken',
     'undefined_world',
     'undefined_world_rooms',
     'undefined_world_players',
@@ -78,6 +79,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'theundefinedbackend.wsgi.application'
 
+# REST framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', )
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
