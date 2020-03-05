@@ -1,7 +1,7 @@
-from django.db import models 
+from django.db import models
 import uuid
-from undefined_world.player_models import Player
-
+from django.apps import apps
+Player = apps.get_model(app_label='undefined_world', model_name='Player')
 
 # create room class of models
 
@@ -19,7 +19,7 @@ class Room(models.Model):
 
     # create function to connect rooms
     def rm_connects(self, destination, heading):
-        destinationID = destination.id 
+        destinationID = destination.id
         reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
         reverse_dir = reverse_dirs[heading]
         setattr(self, f"{heading}_to", destination.id)
@@ -33,6 +33,3 @@ class Room(models.Model):
     # fn to create player uuid
     def playerUUID(self, active_playerID):
         return[p.uuid for p in Player.objects.filter(rm_current=self.id) if p.id != int(active_playerID)]
-                                     
-
-
