@@ -18,7 +18,8 @@ from django.urls import path, include
 from rest_framework import routers
 from api import views
 from api.views import login
-from undefined_world.views import RoomViewSet
+from undefined_world_rooms.views import RoomViewSet
+from undefined_world_players.views import PlayerViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
