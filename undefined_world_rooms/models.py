@@ -1,12 +1,12 @@
 from django.db import models
 import uuid
-from undefined_world_players.player_models import Player
+from undefined_world_players.models import Player
 
 # create room class of models
 
 
 class Room(models.Model):
-    from .player_models import Player
+    
     name = models.CharField(max_length=50, default="ROOM NAME")
     desc = models.CharField(max_length=500, default="ROOM DESCRIPTION")
     #items = models.CharField(max_length=500, default=" ")

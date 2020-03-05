@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from api import views
-from undefined_world.views import RoomViewSet
+from undefined_world_rooms.views import RoomViewSet
+from undefined_world.views import WorldViewSet
+from undefined_world_players.views import PlayerViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -31,6 +33,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
     # path('worlds/', include(undefined_world.urls))
-    # path('rooms/', include(undefined_world_rooms.urls))
+    #path('rooms/', include(undefined_world_rooms.urls))
     # path('players/', include(undefined_world_players.urls))
 ]
