@@ -1,4 +1,4 @@
-from .models import Player
+from undefined_world_players.models import Player
 from rest_framework import serializers
 
 class PlayerSerializer(serializers.HyperlinkedModelSerializer):
