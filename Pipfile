@@ -16,6 +16,7 @@ whitenoise = "*"
 django-heroku = "*"
 django-cors-headers = "*"
 python-decouple = "*"
+uuid = "*"
 psycopg2 = "*"
 
 [requires]
