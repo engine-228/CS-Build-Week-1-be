@@ -1,14 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from rest_framework.authtoken.models import Token
 import uuid
- 
 
 # create room class of models
 
+
 class Room(models.Model):
+    from .player_models import Player
     title = models.CharField(max_length=50, default="TITLE")
     description = models.CharField(max_length=500, default="DESCRIPTION")
     items = models.CharField(max_length=500, default=" ")
@@ -22,7 +19,7 @@ class Room(models.Model):
 
     # create function to connect rooms
     def rm_connects(self, destination, heading):
-        destinationID = destination.id 
+        destinationID = destination.id
         reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
         reverse_dir = reverse_dirs[heading]
         setattr(self, f"{heading}_to", destinationID)
@@ -36,6 +33,3 @@ class Room(models.Model):
     # fn to create player uuid
     def playerUUID(self, active_playerID):
         return[p.uuid for p in Player.objects.filter(rm_current=self.id) if p.id != int(active_playerID)]
-                                     
-
-
