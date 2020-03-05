@@ -4,13 +4,15 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db import models
 from rest_framework.authtoken.models import Token
-# from .room_models import Room
-from django.apps import apps
-Player = apps.get_model(app_label='undefined_world', model_name='Room')
 
 
 # create player model class
+def importRoom():
+    from .room_models import Room
+
+
 class Player(models.Model):
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     rm_current = models.IntegerField(default=0)
     uuid = models.UUIDField(default=uuid.uuid4, unique=True)

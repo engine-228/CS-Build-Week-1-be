@@ -1,6 +1,8 @@
-from undefined_world.player_models import Player
-from undefined_world.room_models import Room
-from undefined_world.room_setups import room_title, room_descriptions
+from .player_models import Player
+from .room_models import Room
+from .room_setups import rooms
+# room_title, room_descriptions
+
 
 class World:
     def __init__(self):
@@ -17,7 +19,7 @@ class World:
         for i in range(len(self.grid)):
             self.grid[i] = [None] * size_x
         # setting params for start point (lower left)
-        x = -1 # <--- 0 on first step
+        x = -1  # <--- 0 on first step
         y = 0
         room_count = 0
         room_title_description = 0
@@ -31,12 +33,12 @@ class World:
         while room_count < num_rooms:
 
             # this determines the direction of the next room created
-            if direction > 0 and x < size_x -1:
+            if direction > 0 and x < size_x - 1:
                 room_direction = 'e'
                 x += 1
             elif direction < 0 and x > 0:
-                room_direction = 'w' 
-                x -= 1    
+                room_direction = 'w'
+                x -= 1
 
             else:
                 # if dead-end can turn and reverse direction via north
@@ -46,10 +48,9 @@ class World:
 
             # build a room in the direction moving
             room = Room(room_count, room_title[room_title_description],
-                        room_descriptions[room_title_description], x,y)
+                        room_descriptions[room_title_description], x, y)
 
-
-            # save that new room in the grid 
+            # save that new room in the grid
             self.grid[x][y] = room
 
             # link up prev room to new room
@@ -59,7 +60,4 @@ class World:
             # now update variables as they iterate
             previous_room = room
             room_count += 1
-            room_title_description += 1    
-                    
-
-
+            room_title_description += 1

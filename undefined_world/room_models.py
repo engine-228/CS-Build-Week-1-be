@@ -1,11 +1,11 @@
 from django.db import models
 import uuid
-from django.apps import apps
-Player = apps.get_model(app_label='undefined_world', model_name='Player')
 
 # create room class of models
 
+
 class Room(models.Model):
+    from .player_models import Player
     title = models.CharField(max_length=50, default="TITLE")
     description = models.CharField(max_length=500, default="DESCRIPTION")
     items = models.CharField(max_length=500, default=" ")
