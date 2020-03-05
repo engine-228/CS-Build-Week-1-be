@@ -16,16 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from api import views
+from api.views import UserViewSet, GroupViewSet
 from api.views import login
 from undefined_world_rooms.views import RoomViewSet
 from undefined_world_players.views import PlayerViewSet
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'users', UserViewSet)
+router.register(r'groups', GroupViewSet)
 router.register(r'rooms', RoomViewSet)
-router.register(r'players', PlayerViewSet)
+router.register(r'players',PlayerViewSet)
 
 
 urlpatterns = [
