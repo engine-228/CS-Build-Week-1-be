@@ -7,9 +7,10 @@ from undefined_world_players.player_models import Player
 
 class Room(models.Model):
     from .player_models import Player
-    title = models.CharField(max_length=50, default="TITLE")
-    description = models.CharField(max_length=500, default="DESCRIPTION")
-    items = models.CharField(max_length=500, default=" ")
+    name = models.CharField(max_length=50, default="ROOM NAME")
+    desc = models.CharField(max_length=500, default="ROOM DESCRIPTION")
+    #items = models.CharField(max_length=500, default=" ")
+    #map = models.IntegerField(max_length=500, default=" ")
     n_to = models.IntegerField(default=0)
     s_to = models.IntegerField(default=0)
     e_to = models.IntegerField(default=0)

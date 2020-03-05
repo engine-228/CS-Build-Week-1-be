@@ -23,10 +23,14 @@ router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'rooms', RoomViewSet)
+router.register(r'players', PlayerViewSet)
+router.register(r'worlds', WorldViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-    # path('rooms/', include(undefined_world.urls))
+    # path('worlds/', include(undefined_world.urls))
+    # path('rooms/', include(undefined_world_rooms.urls))
+    # path('players/', include(undefined_world_players.urls))
 ]
