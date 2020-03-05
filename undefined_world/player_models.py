@@ -7,12 +7,9 @@ from rest_framework.authtoken.models import Token
 
 
 # create player model class
-def importRoom():
-    from .room_models import Room
 
 
 class Player(models.Model):
-
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     rm_current = models.IntegerField(default=0)
     uuid = models.UUIDField(default=uuid.uuid4, unique=True)
