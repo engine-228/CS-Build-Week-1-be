@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from undefined_world_players.player_models import Player
 
 # create room class of models
 

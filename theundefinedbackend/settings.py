@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'undefined_world',
+    'undefined_world_rooms',
+    'undefined_world_players'
 ]
 
 MIDDLEWARE = [
