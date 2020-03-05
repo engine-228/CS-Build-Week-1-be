@@ -2,7 +2,6 @@
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
 
 [dev-packages]
 pylint = "*"
@@ -17,11 +16,8 @@ whitenoise = "*"
 django-heroku = "*"
 django-cors-headers = "*"
 python-decouple = "*"
-<<<<<<< HEAD
 uuid = "*"
-=======
 psycopg2 = "*"
->>>>>>> 3f150e3583af2ba2a0af7a418de097be18eb1a44
 
 [requires]
 python_version = "3.8.1"
