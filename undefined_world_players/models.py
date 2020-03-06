@@ -13,7 +13,7 @@ class Player(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     rm_current = models.IntegerField(default=0)
     uuid = models.UUIDField(default=uuid.uuid4, unique=True)
-    items = models.CharField(max_length=500, default=" ")
+    #items = models.CharField(max_length=500, default=" ")
 
     # create fn to initialize
 

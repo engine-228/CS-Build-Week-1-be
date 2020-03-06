@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from .room_models import Room
 from rest_framework import viewsets
-from .serializers import RoomSerializer
+from .serializers import WorldSerializer
+from .models import World
 
-class RoomViewSet(viewsets.ModelViewSet):
-    queryset = Room.objects.all()
-    serializer_class = RoomSerializer
+# Create your views here.
+
+class WorldViewSet(viewsets.ModelViewSet):
+    queryset = World.objects.all()
+    serializer_class = WorldSerializer
