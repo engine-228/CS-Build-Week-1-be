@@ -43,4 +43,4 @@ def create_player(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_player(sender, instance, **kwargs):
-    instance.player.save()
+    instance.Player.save()
