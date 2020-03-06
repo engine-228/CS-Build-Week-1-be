@@ -5,3 +5,4 @@ class PlayerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Player
         fields = ('__all__') 
+
