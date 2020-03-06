@@ -2,7 +2,7 @@ from django.db import models
 import uuid
 from undefined_world_players.models import Player
 
-# create room class of models
+# # create room class of models
 
 
 class Room(models.Model):
