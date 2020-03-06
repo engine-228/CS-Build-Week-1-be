@@ -15,7 +15,7 @@ class Room(models.Model):
     SOUTH = models.CharField(max_length=150, default="SOUTH")
     EAST = models.CharField(max_length=150, default="EAST")
     WEST = models.CharField(max_length=150, default="WEST")
-    map = models.CharField(max_length=500, default="ROOM MAP")
+    map = models.TextField(max_length=500, default="ROOM MAP")
 
     # create function to connect rooms
     def rm_connects(self, destination, heading):
