@@ -6,23 +6,22 @@ from undefined_world_players.models import Player
 
 
 class Room(models.Model):
-    
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True)
     name = models.CharField(max_length=50, default="ROOM NAME")
     desc = models.CharField(max_length=500, default="ROOM DESCRIPTION")
     #items = models.CharField(max_length=500, default=" ")
     #map = models.IntegerField(max_length=500, default=" ")
-    n_to = models.IntegerField(default=0)
-    s_to = models.IntegerField(default=0)
-    e_to = models.IntegerField(default=0)
-    w_to = models.IntegerField(default=0)
-    # add x,y to locate rooms in the grid
-    x = models.IntegerField(default=0)
-    y = models.IntegerField(default=0)
+    NORTH = models.CharField(max_length=150, default="NORTH")
+    SOUTH = models.CharField(max_length=150, default="SOUTH")
+    EAST = models.CharField(max_length=150, default="EAST")
+    WEST = models.CharField(max_length=150, default="WEST")
+    map = models.CharField(max_length=500, default="ROOM MAP")
 
     # create function to connect rooms
     def rm_connects(self, destination, heading):
         destinationID = destination.id
-        reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
+        reverse_dirs = {"NORTH": "SOUTH", "SOUTH": "NORTH",
+                        "EAST": "WEST", "WEST": "EAST"}
         reverse_dir = reverse_dirs[heading]
         setattr(self, f"{heading}_to", destinationID)
         setattr(destination, f"{reverse_dir}_to", self.id)
