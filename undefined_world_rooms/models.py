@@ -11,10 +11,10 @@ class Room(models.Model):
     desc = models.CharField(max_length=500, default="ROOM DESCRIPTION")
     #items = models.CharField(max_length=500, default=" ")
     #map = models.IntegerField(max_length=500, default=" ")
-    NORTH = models.CharField(max_length=150, default="NORTH")
-    SOUTH = models.CharField(max_length=150, default="SOUTH")
-    EAST = models.CharField(max_length=150, default="EAST")
-    WEST = models.CharField(max_length=150, default="WEST")
+    NORTH = models.CharField(max_length=150, default="")
+    SOUTH = models.CharField(max_length=150, default="")
+    EAST = models.CharField(max_length=150, default="")
+    WEST = models.CharField(max_length=150, default="")
     map = models.TextField(max_length=1500, default="ROOM MAP")
 
     # create function to connect rooms
