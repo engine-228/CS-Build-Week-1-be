@@ -1,14 +1,16 @@
 from django.db import models
 import uuid
+from undefined_world_players.models import Player
 
 # create room class of models
 
 
 class Room(models.Model):
-    from .player_models import Player
-    title = models.CharField(max_length=50, default="TITLE")
-    description = models.CharField(max_length=500, default="DESCRIPTION")
-    items = models.CharField(max_length=500, default=" ")
+    
+    name = models.CharField(max_length=50, default="ROOM NAME")
+    desc = models.CharField(max_length=500, default="ROOM DESCRIPTION")
+    #items = models.CharField(max_length=500, default=" ")
+    #map = models.IntegerField(max_length=500, default=" ")
     n_to = models.IntegerField(default=0)
     s_to = models.IntegerField(default=0)
     e_to = models.IntegerField(default=0)
@@ -22,7 +24,7 @@ class Room(models.Model):
         destinationID = destination.id
         reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
         reverse_dir = reverse_dirs[heading]
-        setattr(self, f"{heading}_to", destination.id)
+        setattr(self, f"{heading}_to", destinationID)
         setattr(destination, f"{reverse_dir}_to", self.id)
         self.save()
 

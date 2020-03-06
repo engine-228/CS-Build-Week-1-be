@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
-from undefined_world.models import Player, Room
+from undefined_world_rooms.models import Room
+from undefined_world_players.models import Player
 # Comment to push so heroku can work
 
 
