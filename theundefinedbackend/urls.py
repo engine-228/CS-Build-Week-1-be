@@ -31,7 +31,8 @@ router.register(r'players', PlayerViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    re_path('api-auth/', views.obtain_auth_token),
     path('rooms/', RoomViewSet),
-    path('players/', PlayerViewSet)
+    path('players/', PlayerViewSet),
+    re_path('api-auth/', views.obtain_auth_token),
+
 ]
