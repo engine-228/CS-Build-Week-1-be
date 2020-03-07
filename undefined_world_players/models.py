@@ -4,6 +4,8 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.db import models
 from rest_framework.authtoken.models import Token
+from undefined_world_rooms import Room
+
 
 
 # create player model class

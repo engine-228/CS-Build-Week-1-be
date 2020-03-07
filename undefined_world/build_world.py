@@ -1,5 +1,5 @@
-from .player_models import Player
-from .room_models import Room
+from .models import Player
+from .models import Room
 from .room_setups import rooms
 # room_title, room_descriptions
 
