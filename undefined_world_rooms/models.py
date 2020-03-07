@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from undefined_world_players.models import Player
+from .models import Player
 
 # create room class of models
 
@@ -16,8 +16,8 @@ class Room(models.Model):
     e_to = models.IntegerField(default=0)
     w_to = models.IntegerField(default=0)
     # add x,y to locate rooms in the grid
-    x = models.IntegerField(default=0)
-    y = models.IntegerField(default=0)
+    # x = models.IntegerField(default=0)
+    # y = models.IntegerField(default=0)
 
     # create function to connect rooms
     def rm_connects(self, destination, heading):
@@ -25,13 +25,13 @@ class Room(models.Model):
         reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
         reverse_dir = reverse_dirs[heading]
         setattr(self, f"{heading}_to", destinationID)
-        setattr(destination, f"{reverse_dir}_to", self.id)
+        setattr(destination, f"{reverse_dir}_to", self)
         self.save()
 
     # fn to create player naming/id
     def player_handle(self, active_playerID):
-        return[p.user.username for p in Player.objects.filter(rm_current=self.id) if p.id != int(active_playerID)]
+        return[p.user.username for p in Player.objects.filter(rm_current=active_playerID) if p.id != int(active_playerID)]
 
     # fn to create player uuid
     def playerUUID(self, active_playerID):
-        return[p.uuid for p in Player.objects.filter(rm_current=self.id) if p.id != int(active_playerID)]
+        return[p.uuid for p in Player.objects.filter(rm_current=active_playerID) if p.id != int(active_playerID)]
