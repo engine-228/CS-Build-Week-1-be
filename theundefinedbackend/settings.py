@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from decouple import config
-import django_heroku
+#import django-heroku
 import dj_database_url
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 
@@ -84,14 +84,15 @@ WSGI_APPLICATION = 'theundefinedbackend.wsgi.application'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated', ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    ),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': (
+        
+    #     'rest_framework.authentication.TokenAuthentication',
+    # ),
 }
 
 # Database
@@ -143,4 +144,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-django_heroku.settings(locals())
+#django_heroku.settings(locals())

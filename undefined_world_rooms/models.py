@@ -1,8 +1,14 @@
-from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 import uuid
+from django.db import models
 from undefined_world_players.models import Player
 
-# # create room class of models
+
+
+# create room class of models
 
 
 class Room(models.Model):
@@ -24,13 +30,13 @@ class Room(models.Model):
                         "EAST": "WEST", "WEST": "EAST"}
         reverse_dir = reverse_dirs[heading]
         setattr(self, f"{heading}_to", destinationID)
-        setattr(destination, f"{reverse_dir}_to", self.id)
+        setattr(destination, f"{reverse_dir}_to", self)
         self.save()
 
     # fn to create player naming/id
     def player_handle(self, active_playerID):
-        return[p.user.username for p in Player.objects.filter(rm_current=self.id) if p.id != int(active_playerID)]
+        return[p.user.username for p in Player.objects.filter(rm_current=active_playerID) if p.id != int(active_playerID)]
 
     # fn to create player uuid
     def playerUUID(self, active_playerID):
-        return[p.uuid for p in Player.objects.filter(rm_current=self.id) if p.id != int(active_playerID)]
+        return[p.uuid for p in Player.objects.filter(rm_current=active_playerID) if p.id != int(active_playerID)]
